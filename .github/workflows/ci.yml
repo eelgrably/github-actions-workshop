@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - Step-0
+
+
+    jobs:
+      build-test:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v2
+            with:
+              fetch-depth: 0
+
+          - name: Setup nodeJS 16
+            uses: actions/setup-node@v1
+            with:
+              node-version: 16
+
+          - name: Install dependencies
+              run: yarn install
+
+          - name: Test
+              run: yarn test:c1
+
+
