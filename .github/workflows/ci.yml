@@ -5,7 +5,6 @@ on:
     branches:
       - Step-0
 
-
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -16,15 +15,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup nodeJS 16
+      - name: Setup NodeJS 16
         uses: actions/setup-node@v1
         with:
           node-version: 16
 
       - name: Install dependencies
-          run: yarn install
+        run: yarn install
 
       - name: Test
-          run: yarn test:c1
-
-
+        run: yarn test:ci
